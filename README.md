@@ -1,5 +1,9 @@
 # String utilities(written in Rust)
 
+A successor to my previous [text-utils](https://github.com/kshksdrt/text-utils/).
+
+Disclaimer: These are simply implementation of few things I wanted. Do not be surprised if you do not find them not useful.
+
 ## Features:
 
 - String to Hex Color Generator
