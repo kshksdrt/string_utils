@@ -14,14 +14,14 @@ struct Cli {
     input_string: String,
 
     #[arg(long, value_name = "FUNCTION_NAME")]
-    out: Option<CliFunction>,
+    invoke: Option<CliFunction>,
 }
 
 fn main() {
     // Parse the command line arguments using the struct defined above
     let cli = Cli::parse();
 
-    match cli.out {
+    match cli.invoke {
         Some(function_name) => match function_name {
             CliFunction::HexColor => {
                 let color = modname::string_to_hex_color(&cli.input_string);
@@ -31,9 +31,8 @@ fn main() {
                 println!("Coming soon!");
             }
         },
-        // When --out was not provided.
         _ => {
-            println!("I don't know what to do with it. Try specifying --out hex_color");
+            println!("I don't know what to do with it.");
         }
     }
 }
