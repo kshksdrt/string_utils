@@ -1,6 +1,6 @@
 use clap::{Parser, ValueEnum};
 
-mod modname;
+mod color_utils;
 
 #[derive(ValueEnum, Clone, Debug, Eq, PartialEq)]
 pub enum CliFunction {
@@ -24,7 +24,7 @@ fn main() {
     match cli.invoke {
         Some(function_name) => match function_name {
             CliFunction::HexColor => {
-                let color = modname::string_to_hex_color(&cli.input_string);
+                let color = color_utils::string_to_hex_color(&cli.input_string);
                 println!("{}", color);
             }
             CliFunction::WordCount => {
