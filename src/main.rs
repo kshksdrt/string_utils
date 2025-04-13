@@ -31,7 +31,7 @@ fn main() {
             }
             CliFunction::ColorHexLightBg => {
                 const SATURATION_PERCENTAGE: f64 = 0.8;
-                const LIGHTNESS_PERCENTAGE: f64 = 0.6;
+                const LIGHTNESS_PERCENTAGE: f64 = 0.8;
                 let color = color_utils::string_to_hex_color_sl(
                     &cli.input_string,
                     SATURATION_PERCENTAGE,
