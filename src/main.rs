@@ -1,10 +1,12 @@
 use clap::{Parser, ValueEnum};
 
 mod color_utils;
+mod utils;
 
 #[derive(ValueEnum, Clone, Debug, Eq, PartialEq)]
 pub enum CliFunction {
-    HexColor,
+    ColorHex,
+    ColorHSL,
     WordCount,
 }
 
@@ -23,9 +25,12 @@ fn main() {
 
     match cli.invoke {
         Some(function_name) => match function_name {
-            CliFunction::HexColor => {
+            CliFunction::ColorHex => {
                 let color = color_utils::string_to_hex_color(&cli.input_string);
                 println!("{}", color);
+            }
+            CliFunction::ColorHSL => {
+                println!("Coming soon!");
             }
             CliFunction::WordCount => {
                 println!("Coming soon!");

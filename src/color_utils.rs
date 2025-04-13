@@ -1,4 +1,4 @@
-use crc32fast::Hasher;
+use crate::utils::hash_file_path;
 
 /// Generates a reproducible hex color string (e.g., "#RRGGBB") from an input string.
 ///
@@ -12,10 +12,7 @@ use crc32fast::Hasher;
 ///
 /// A `String` representing the hex color code.
 pub(crate) fn string_to_hex_color(input: &str) -> String {
-    let mut hasher = Hasher::new();
-
-    hasher.update(input.as_bytes());
-    let hash_value = hasher.finalize();
+    let hash_value = hash_file_path(input);
 
     // Extract RGB components from the hash bytes.
     // We use the lower 3 bytes (24 bits) of the 32-bit hash.
