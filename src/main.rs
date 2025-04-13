@@ -6,7 +6,7 @@ mod utils;
 #[derive(ValueEnum, Clone, Debug, Eq, PartialEq)]
 pub enum CliFunction {
     ColorHex,
-    ColorHSL,
+    ColorHexLightBg,
     WordCount,
 }
 
@@ -29,8 +29,15 @@ fn main() {
                 let color = color_utils::string_to_hex_color(&cli.input_string);
                 println!("{}", color);
             }
-            CliFunction::ColorHSL => {
-                println!("Coming soon!");
+            CliFunction::ColorHexLightBg => {
+                const SATURATION_PERCENTAGE: f64 = 0.8;
+                const LIGHTNESS_PERCENTAGE: f64 = 0.6;
+                let color = color_utils::string_to_hex_color_sl(
+                    &cli.input_string,
+                    SATURATION_PERCENTAGE,
+                    LIGHTNESS_PERCENTAGE,
+                );
+                println!("{}", color);
             }
             CliFunction::WordCount => {
                 println!("Coming soon!");
