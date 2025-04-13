@@ -1,8 +1,8 @@
-# String utilities(written in Rust)
+# String utilities
 
-A successor to my previous [text-utils](https://github.com/kshksdrt/text-utils/).
+String utils(written in Rust) is a successor to my previous [text-utils, which was written in go](https://github.com/kshksdrt/text-utils/).
 
-Disclaimer: These are simply implementation of few things I wanted. Do not be surprised if you do not find them not useful.
+Disclaimer: These are simply few things I wanted. Do not be surprised if you do not find them not useful.
 
 ## Features:
 
