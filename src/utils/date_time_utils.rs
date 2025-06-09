@@ -17,11 +17,13 @@ pub(crate) fn format_duration(seconds: u32) -> String {
         parts.push(format!("{}s", remaining_seconds));
     }
 
-    if parts.is_empty() {
+    let duration = if parts.is_empty() {
         "0s".to_string()
     } else {
         parts.join(" ")
-    }
+    };
+
+    format!("Will be back in {}", duration)
 }
 
 pub(crate) fn format_duration_with_timestamp(seconds: u32) -> String {
@@ -31,5 +33,8 @@ pub(crate) fn format_duration_with_timestamp(seconds: u32) -> String {
     let iso_timestamp = future_time.format("%Y-%m-%dT%H:%M:%S").to_string();
     let human_timestamp = future_time.format("%H:%M:%S %d/%m/%Y").to_string();
 
-    format!("{} ({} - {})", duration_str, human_timestamp, iso_timestamp)
+    format!(
+        "Will be back in {} ({} - {})",
+        duration_str, human_timestamp, iso_timestamp
+    )
 }
