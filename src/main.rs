@@ -1,7 +1,5 @@
 use clap::{Parser, ValueEnum};
 
-mod color_utils;
-mod date_time_utils;
 mod utils;
 
 #[derive(ValueEnum, Clone, Debug, Eq, PartialEq)]
@@ -29,13 +27,13 @@ fn main() {
     match cli.invoke {
         Some(function_name) => match function_name {
             CliFunction::ColorHex => {
-                let color = color_utils::string_to_hex_color(&cli.input_string);
+                let color = utils::color_utils::string_to_hex_color(&cli.input_string);
                 println!("{}", color);
             }
             CliFunction::ColorHexLightBg => {
                 const SATURATION_PERCENTAGE: f64 = 0.8;
                 const LIGHTNESS_PERCENTAGE: f64 = 0.8;
-                let color = color_utils::string_to_hex_color_sl(
+                let color = utils::color_utils::string_to_hex_color_sl(
                     &cli.input_string,
                     SATURATION_PERCENTAGE,
                     LIGHTNESS_PERCENTAGE,
@@ -47,7 +45,7 @@ fn main() {
             }
             CliFunction::BeBackInString => match cli.input_string.parse::<u32>() {
                 Ok(seconds) => {
-                    let formatted = date_time_utils::format_duration(seconds);
+                    let formatted = utils::date_time_utils::format_duration(seconds);
                     println!("{}", formatted);
                 }
                 Err(_) => {
@@ -56,7 +54,7 @@ fn main() {
             },
             CliFunction::BeBackInStringWithTimestamp => match cli.input_string.parse::<u32>() {
                 Ok(seconds) => {
-                    let formatted = date_time_utils::format_duration_with_timestamp(seconds);
+                    let formatted = utils::date_time_utils::format_duration_with_timestamp(seconds);
                     println!("{}", formatted);
                 }
                 Err(_) => {

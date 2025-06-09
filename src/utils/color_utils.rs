@@ -1,4 +1,4 @@
-use crate::utils::hash_file_path;
+use crate::utils::fs_utils::hash_file_path;
 use color_art::Color;
 
 /// Generates a reproducible hex color string (e.g., "#RRGGBB") from an input string.
